@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE 5K LEGACY WALL | PREMIUM BRANDING</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<div class="top-nav">
+    <div class="payment-pills">
+        <div class="pill binance" onclick="copyVal('912221034')">BINANCE ID: 912221034</div>
+        <div class="pill usdt" onclick="copyVal('TTapBkTqrDnzHbWzek6wSBUTcJKFmR8Ws6')">USDT (TRC20)</div>
+    </div>
+    <div class="social-glass">
+        <a href="https://facebook.com/the10klegacywall" target="_blank" class="fb"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/the10klegacywall" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/the10klegacywall" target="_blank" class="tw"><i class="fab fa-twitter"></i></a>
+        <a href="https://youtube.com/@the10klegacywall" target="_blank" class="yt"><i class="fab fa-youtube"></i></a>
+        <a href="https://tiktok.com/@the10klegacywall" target="_blank" class="tk"><i class="fab fa-tiktok"></i></a>
+    </div>
+</div>
+
+<div class="hero-section">
+    <h1 class="shimmer-title">THE 5K LEGACY WALL</h1>
+    <p class="tagline">Only 5,000 Elite Brands. One Eternal Legacy.</p>
+    
+    <div class="action-grid">
+        <a href="order.html" class="cta-gold">BECOME A LEGACY ($10)</a>
+        <div class="tracker-box">
+            <input type="text" id="trackID" placeholder="Enter Order ID">
+            <button onclick="checkStatus()">STATUS</button>
+        </div>
+    </div>
+
+    <div class="search-bar-pro">
+        <input type="number" id="searchInput" placeholder="Search Plot Number (1-5000)">
+        <button onclick="searchPlot()"><i class="fas fa-search"></i> SEARCH</button>
+    </div>
+
+    <div class="live-counter">
+        <div class="stat-card"><span>TOTAL</span> 5,000</div>
+        <div class="stat-card sold"><span>SOLD</span> <span id="sold-count">0</span></div>
+        <div class="stat-card rem"><span>REMAINING</span> <span id="rem-count">5,000</span></div>
+    </div>
+</div>
+
+<div class="map-wrapper">
+    <div class="frame-decor">
+        <div id="viewport">
+            <div id="mover"><canvas id="mainCanvas"></canvas></div>
+        </div>
+    </div>
+</div>
+
+<div class="premium-services">
+    <h2>OUR PREMIUM SERVICES</h2>
+    <div class="service-grid">
+        <div class="s-card"><i class="fas fa-link"></i> <h3>Lifetime Backlink</h3><p>Permanent high-authority backlink for your website SEO.</p></div>
+        <div class="s-card"><i class="fas fa-bullhorn"></i> <h3>Global Exposure</h3><p>Reach millions of visitors monthly on our legacy wall.</p></div>
+        <div class="s-card"><i class="fas fa-shield-alt"></i> <h3>Legacy Protection</h3><p>Your brand logo stays forever. 100% Secure.</p></div>
+    </div>
+</div>
+
+<footer>
+    <p>The10KLegacyWall © 2026 KAWSAR AHMED | All Rights Reserved.</p>
+</footer>
+
+<a href="support.html" target="_blank" class="wa-float">
+    <i class="fab fa-whatsapp"></i> CUSTOMER CARE
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
