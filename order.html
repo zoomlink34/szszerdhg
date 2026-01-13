@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JOIN THE LEGACY</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
+        .order-card { background: #111; padding: 40px; border-radius: 20px; border: 2px solid #D4AF37; text-align: center; width: 350px; }
+        input { width: 90%; padding: 15px; margin: 10px 0; background: #222; border: 1px solid #444; color: #fff; border-radius: 10px; }
+        .btn { width: 100%; padding: 15px; background: #D4AF37; color: #000; font-weight: bold; border-radius: 10px; cursor: pointer; border: none; font-size: 16px; }
+        
+        /* সাকসেস ওভারলে */
+        #success-overlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.95); z-index: 100; flex-direction: column; justify-content: center; align-items: center; 
+        }
+        .congrats-text { font-size: 40px; color: #D4AF37; font-weight: 900; animation: bounce 1s infinite; text-align: center; }
+        @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    </style>
+</head>
+<body>
+    <div class="order-card" id="form-box">
+        <h2 style="color:#D4AF37">RESERVE PLOT</h2>
+        <input type="text" id="brand" placeholder="Your Brand Name">
+        <input type="number" id="plot" placeholder="Plot Number (1-5000)">
+        <button class="btn" onclick="submitOrder()">SUBMIT TO LEGACY</button>
+    </div>
+
+    <div id="success-overlay">
+        <div class="congrats-text">CONGRATULATIONS! 🎉</div>
+        <h1 id="user-brand" style="color:white; margin:20px 0;"></h1>
+        <p style="color:#D4AF37; font-size:20px;">Welcome to the Eternal Wall</p>
+        <p>Redirecting back to Map...</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script>
+        firebase.initializeApp({databaseURL: "https://m-legacy-5cf2b-default-rtdb.firebaseio.com/"});
+        function submitOrder() {
+            const name = document.getElementById('brand').value;
+            const plot = document.getElementById('plot').value;
+            const orderID = "LGC" + Math.floor(Math.random()*99999);
+            
+            if(!name || !plot) return alert("Please fill details.");
+            
+            firebase.database().ref('orders/' + orderID).set({ name, plotID: plot })
+            .then(() => {
+                document.getElementById('user-brand').innerText = name;
+                document.getElementById('form-box').style.display = 'none';
+                document.getElementById('success-overlay').style.display = 'flex';
+                
+                // ৩ সেকেন্ড পর অটো ব্যাক
+                setTimeout(() => { window.location.href = "index.html"; }, 3500);
+            });
+        }
+    </script>
+</body>
+</html>
